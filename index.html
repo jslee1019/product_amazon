@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANS — Product Brief for Influencer Seeding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #1a1a1a; --ink-mid: #4a4a4a; --ink-light: #8a8a8a;
+  --rule: #e0e0e0; --bg: #fafaf8; --highlight: #f0ede6;
+  --coffee: #c0ffee;
+  --focus: #7a8a6e;
+  --focus-bg: #eef1ea;
+  --restore: #3d2817;
+  --restore-bg: #f3ede5;
+  --accent: #c8102e;
+  --positive: #2d6a4f; --negative: #8b2c2c;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --max: 860px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-weight: 300; background: var(--bg); color: var(--ink); font-size: 17px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: none; }
+.display { font-family: var(--font-display); font-size: clamp(36px, 7vw, 68px); line-height: 1.06; letter-spacing: -0.02em; }
+.display em { font-style: italic; color: var(--ink-mid); }
+h2 { font-family: var(--font-display); font-size: 30px; font-weight: 400; line-height: 1.25; margin-bottom: 28px; }
+h3 { font-size: 14px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 20px; }
+p { color: var(--ink-mid); margin-bottom: 16px; line-height: 1.8; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 500; color: var(--ink); }
+
+/* SANS LOGO (custom lettering — patterned after packaging) */
+.sans-logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+.sans-logo .sa, .sans-logo .ns { display: inline-block; }
+.sans-logo .dot { width: 0.12em; height: 0.12em; border-radius: 50%; background: var(--accent); margin: 0 0.04em; align-self: center; transform: translateY(-0.25em); }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,248,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 12px 40px 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.nav-brand { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-light); text-transform: uppercase; text-decoration: none; }
+.nav-links { display: flex; gap: 4px; list-style: none; flex-wrap: wrap; }
+.nav-links a { font-size: 11.5px; font-weight: 400; letter-spacing: 0.02em; color: var(--ink-light); text-decoration: none; transition: color 0.15s, background 0.15s; padding: 4px 12px; border-radius: 20px; white-space: nowrap; cursor: pointer; }
+.nav-links a:hover { color: var(--ink); background: var(--highlight); }
+.nav-links a.active { color: var(--ink); background: var(--coffee); font-weight: 600; }
+
+/* COVER */
+#cover { padding: 72px 0 72px; }
+.cover-logo { font-size: 52px; margin-bottom: 36px; }
+.cover-eyebrow { font-size: 11px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 28px; }
+.cover-sub { font-size: 16px; font-weight: 300; color: var(--ink-mid); max-width: 580px; margin: 24px 0 44px; line-height: 1.65; }
+
+/* KPI */
+.kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule); }
+.kpi { padding: 24px 18px; border-right: 1px solid var(--rule); }
+.kpi:last-child { border-right: none; }
+.kpi-value { font-family: var(--font-display); font-size: 30px; line-height: 1.1; margin-bottom: 6px; }
+.kpi-label { font-size: 13px; color: var(--ink-light); line-height: 1.5; }
+
+/* CHAPTER */
+.chapter-num { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 20px; background: var(--coffee); padding: 4px 14px; border-radius: 4px; font-family: var(--font-body); }
+hr.rule { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+hr.rule-heavy { border: none; border-top: 1px solid var(--ink); margin: 36px 0; }
+
+/* LAYOUT */
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.callout { background: var(--highlight); border-left: 2px solid var(--ink); padding: 20px 24px; margin: 28px 0; }
+.callout p { color: var(--ink); margin: 0; }
+
+/* PULL QUOTE */
+.pull-quote { padding: 32px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 36px 0; }
+.pull-quote blockquote { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--ink); margin-bottom: 12px; }
+.pull-quote cite { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); font-style: normal; }
+
+/* INFO LIST */
+.info-list { list-style: none; margin: 18px 0; }
+.info-list li { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: 16px; align-items: start; }
+.info-list li:first-child { border-top: 1px solid var(--rule); }
+.info-list .lbl { font-size: 11.5px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-light); padding-top: 2px; line-height: 1.5; }
+.info-list .val { color: var(--ink-mid); line-height: 1.6; }
+
+/* PRODUCT HERO */
+.product-hero { padding: 52px 44px; margin: 40px 0 28px; position: relative; overflow: hidden; }
+.product-hero.focus { background: var(--focus-bg); }
+.product-hero.restore { background: var(--restore-bg); }
+.product-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+.product-hero.focus .product-eyebrow { color: var(--focus); }
+.product-hero.restore .product-eyebrow { color: var(--restore); }
+.product-title { font-family: var(--font-display); font-size: clamp(34px, 5.5vw, 52px); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 14px; color: var(--ink); }
+.product-tagline { font-size: 16px; font-style: italic; color: var(--ink-mid); max-width: 440px; line-height: 1.6; }
+.product-hero::after {
+  content: 'sa.ns'; position: absolute; bottom: -18px; right: -6px;
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: 140px; line-height: 1; opacity: 0.08; letter-spacing: -0.04em;
+  transform: scaleX(-1);
+}
+
+/* BENEFIT TAGS */
+.benefit-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
+.benefit-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; }
+.benefit-tag.focus { background: var(--focus); color: white; }
+.benefit-tag.restore { background: var(--restore); color: white; }
+
+/* INGREDIENT LIST */
+.ingredient-list { list-style: none; margin: 14px 0; }
+.ingredient-list li { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; align-items: baseline; }
+.ingredient-list li:first-child { border-top: 1px solid var(--rule); }
+.ingredient-list .name { font-weight: 500; color: var(--ink); font-size: 14.5px; letter-spacing: 0.01em; }
+.ingredient-list .desc { color: var(--ink-mid); line-height: 1.65; font-size: 14.5px; }
+
+/* STEPS */
+.steps { margin: 24px 0; }
+.step { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.step:first-child { border-top: 1px solid var(--rule); }
+.step-num { font-family: var(--font-display); font-style: italic; font-size: 24px; color: var(--accent); line-height: 1; padding-top: 2px; }
+.step-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+.step-body { font-size: 15.5px; color: var(--ink-mid); line-height: 1.7; }
+
+/* CONC CARDS */
+.conclusion-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 28px 0; }
+.conc-card { background: var(--bg); padding: 28px 32px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; align-items: start; }
+.conc-num { font-family: var(--font-display); font-style: italic; font-size: 36px; color: var(--coffee); line-height: 1; }
+.conc-title { font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.conc-body { font-size: 15.5px; color: var(--ink-mid); line-height: 1.75; }
+
+/* CAFFEINE HERO BOX */
+.caffeine-hero { background: var(--ink); color: white; padding: 44px 44px; margin: 32px 0; position: relative; overflow: hidden; }
+.caffeine-hero h3 { color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+.caffeine-hero .big { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); line-height: 1.1; color: white; margin-bottom: 20px; letter-spacing: -0.01em; }
+.caffeine-hero .big em { color: var(--coffee); font-style: italic; }
+.caffeine-hero p { color: rgba(255,255,255,0.75); font-size: 15.5px; line-height: 1.7; max-width: 620px; }
+.caffeine-hero p strong { color: var(--coffee); font-weight: 600; }
+
+/* FORMULA GRID (2:1 ratio visual) */
+.formula-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2px; background: rgba(255,255,255,0.15); margin: 32px 0 20px; }
+.formula-cell { background: var(--ink); padding: 26px 28px; }
+.formula-cell.l-theanine { background: #2a2a2a; }
+.formula-cell.caffeine { background: #1a1a1a; }
+.formula-cell .f-label { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.formula-cell .f-amount { font-family: var(--font-display); font-size: 36px; color: white; line-height: 1; margin-bottom: 6px; }
+.formula-cell .f-amount em { font-style: italic; color: var(--coffee); font-size: 20px; margin-left: 2px; }
+.formula-cell .f-name { font-size: 13px; font-weight: 500; color: white; margin-bottom: 4px; }
+.formula-cell .f-note { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.formula-ratio { text-align: center; font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--coffee); margin-top: 10px; letter-spacing: 0.05em; }
+
+/* ENERGY CURVE CHART */
+.energy-chart { background: white; border: 1px solid var(--rule); padding: 32px 32px 20px; margin: 28px 0; }
+.chart-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.chart-title { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); }
+.chart-legend { display: flex; gap: 18px; font-size: 12px; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-mid); }
+.legend-swatch { width: 18px; height: 2px; }
+.legend-swatch.sans { background: var(--focus); }
+.legend-swatch.coffee { background: var(--accent); border-style: dashed; }
+.chart-svg { width: 100%; height: auto; display: block; }
+.chart-caption { font-size: 12px; color: var(--ink-light); text-align: center; margin-top: 14px; font-style: italic; line-height: 1.6; }
+
+/* COMPARISON TABLE */
+.comp-wrap { margin: 28px 0; border: 1px solid var(--rule); overflow: hidden; }
+.comp-head-row, .comp-row { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; align-items: stretch; }
+.comp-head-row { border-bottom: 1px solid var(--ink); background: var(--bg); }
+.comp-row { border-bottom: 1px solid var(--rule); }
+.comp-row:last-child { border-bottom: none; }
+.comp-row:nth-child(even) { background: rgba(0,0,0,0.015); }
+.comp-cell { padding: 14px 16px; font-size: 14px; line-height: 1.55; border-right: 1px solid var(--rule); color: var(--ink-mid); }
+.comp-cell:last-child { border-right: none; }
+.comp-cell.head { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); padding: 14px 16px; }
+.comp-cell.attr { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-light); padding: 14px 16px; }
+.comp-cell.sans-col { background: var(--focus-bg); color: var(--ink); font-weight: 500; }
+.comp-cell.sans-col.head { background: var(--focus); color: white; }
+.comp-cell .mark-pos { color: var(--positive); font-weight: 600; }
+.comp-cell .mark-neg { color: var(--negative); font-weight: 500; }
+
+/* VERDICT (3-col comparison) */
+.verdict-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 28px 0; }
+.verdict { background: var(--bg); padding: 24px 22px; }
+.verdict-title { font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+.verdict-title.old { color: var(--negative); }
+.verdict-title.gap { color: var(--ink-light); }
+.verdict-title.new { color: var(--positive); }
+.verdict p { font-size: 14.5px; line-height: 1.65; color: var(--ink-mid); }
+.verdict p strong { color: var(--ink); }
+
+/* HIGHLIGHT BOX — for "Only SANS" claims */
+.highlight-card { border: 1px solid var(--ink); padding: 28px 32px; margin: 28px 0; background: white; position: relative; }
+.highlight-label { position: absolute; top: -10px; left: 24px; background: var(--ink); color: white; padding: 3px 12px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.highlight-card h4 { font-family: var(--font-display); font-size: 22px; line-height: 1.3; margin: 8px 0 12px; color: var(--ink); }
+.highlight-card p { font-size: 15px; color: var(--ink-mid); }
+
+/* TALKING POINT GROUPS */
+.tp-group { margin: 32px 0; }
+.tp-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.tp-quote { font-family: var(--font-display); font-size: 18.5px; line-height: 1.45; font-style: italic; color: var(--ink); padding: 10px 0; border-bottom: 1px dotted var(--rule); }
+.tp-quote:last-child { border-bottom: none; }
+.tp-quote::before { content: '"'; color: var(--ink-light); margin-right: 2px; }
+.tp-quote::after { content: '"'; color: var(--ink-light); margin-left: 2px; }
+
+/* AUDIENCE CARDS */
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+.audience-card { border: 1px solid var(--rule); padding: 22px 24px; }
+.audience-tag { font-size: 9.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
+.audience-title { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.4; }
+.audience-body { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+
+/* DISCLAIMER BOX */
+.disclaimer { border: 1px solid var(--ink); padding: 22px 26px; margin: 28px 0; position: relative; }
+.disclaimer-label { position: absolute; top: -9px; left: 20px; background: var(--bg); padding: 0 8px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.disclaimer p { font-size: 13.5px; color: var(--ink-mid); font-style: italic; line-height: 1.7; margin: 0; }
+
+/* FOOTER */
+footer { padding: 56px 0; background: var(--ink); }
+.footer-inner { max-width: var(--max); margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.footer-logo { font-size: 32px; color: white; }
+.footer-logo .dot { background: var(--coffee); }
+.footer-sub { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+.footer-meta { font-size: 11px; color: rgba(255,255,255,0.35); text-align: right; line-height: 1.9; }
+
+/* FADE */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.fade { animation: fadeUp 0.55s ease both; }
+.fade-1 { animation-delay: 0.08s; } .fade-2 { animation-delay: 0.2s; } .fade-3 { animation-delay: 0.32s; } .fade-4 { animation-delay: 0.44s; }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .wrap { padding: 0 18px; } .nav-inner { padding: 10px 18px 8px; }
+  section { padding: 52px 0; }
+  #cover { padding: 48px 0 40px; }
+  .cover-logo { font-size: 40px; margin-bottom: 28px; }
+  .display { font-size: clamp(30px, 8.5vw, 44px); }
+  .cover-sub { font-size: 14.5px; }
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 1px solid var(--rule); padding: 18px 14px; }
+  .kpi:nth-child(2) { border-right: none; }
+  .kpi:nth-child(3) { border-bottom: none; }
+  .kpi:nth-child(4) { border-bottom: none; border-right: none; }
+  .kpi-value { font-size: 22px; }
+  .kpi-label { font-size: 11px; }
+  .cols-2, .audience-grid { grid-template-columns: 1fr; }
+  .product-hero { padding: 36px 24px; }
+  .product-hero::after { font-size: 80px; }
+  .info-list li { grid-template-columns: 1fr; gap: 3px; }
+  .info-list .lbl { font-size: 10px; }
+  .info-list .val { font-size: 13.5px; }
+  .ingredient-list li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .step { grid-template-columns: 32px 1fr; gap: 12px; }
+  .step-num { font-size: 19px; }
+  .conc-card { grid-template-columns: 32px 1fr; gap: 12px; padding: 20px 16px; }
+  .conc-num { font-size: 24px; }
+  .tp-quote { font-size: 16px; }
+  .caffeine-hero { padding: 32px 24px; }
+  .caffeine-hero .big { font-size: 24px; }
+  .formula-grid { grid-template-columns: 1fr; gap: 1px; }
+  .formula-cell { padding: 20px 22px; }
+  .energy-chart { padding: 22px 18px 14px; }
+  .chart-legend { font-size: 11px; gap: 12px; }
+  /* Comparison table -> stacked by column */
+  .comp-head-row, .comp-row { grid-template-columns: 1fr 1fr; }
+  .comp-cell { font-size: 13px; padding: 11px 12px; }
+  .comp-cell.attr { grid-column: 1 / -1; background: var(--highlight); font-size: 10px; padding: 8px 12px; border-right: none; }
+  .comp-cell:nth-child(2) { border-right: 1px solid var(--rule); }
+  .comp-cell:nth-child(3) { border-right: none; }
+  .comp-cell:nth-child(4) { grid-column: 1 / -1; border-top: 1px solid var(--rule); }
+  .comp-head-row .comp-cell.attr { display: none; }
+  .verdict-row { grid-template-columns: 1fr; background: var(--bg); gap: 0; }
+  .verdict { border-bottom: 1px solid var(--rule); }
+  .verdict:last-child { border-bottom: none; }
+  .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .footer-meta { text-align: left; }
+  .footer-logo { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#cover" class="nav-brand">SANS — Seeding Brief</a>
+    <ul class="nav-links">
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#vs-mushroom">vs. Mushroom Coffee</a></li>
+      <li><a href="#focus">Focus & Energy</a></li>
+      <li><a href="#formula">2:1 Formula</a></li>
+      <li><a href="#restore">Balance & Restore</a></li>
+      <li><a href="#ritual">Ritual</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#talking">Talking Points</a></li>
+      <li><a href="#audience">Audiences</a></li>
+      <li><a href="#guidelines">Guidelines</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============= COVER ============= -->
+<section id="cover">
+  <div class="wrap">
+    <div class="sans-logo cover-logo fade fade-1"><span class="sa">sa</span><span class="dot"></span><span class="ns">ns</span></div>
+    <div class="cover-eyebrow fade fade-2">U.S. Amazon Launch  ·  2026  ·  Product Brief for Influencer Seeding Agencies</div>
+    <h1 class="display fade fade-3">
+      Remarkable taste,<br>
+      <em>without coffee beans.</em>
+    </h1>
+    <p class="cover-sub fade fade-4">
+      This brief is built to help your team fully understand the product before briefing creators. SANS is not another mushroom coffee — it's a new category entirely. Inside: the science, the formula, and the competitive story that makes this a first-of-its-kind launch in the U.S. functional beverage market.
+    </p>
+    <div class="kpi-strip fade fade-4">
+      <div class="kpi">
+        <div class="kpi-value">12+</div>
+        <div class="kpi-label">Functional superfoods per stick</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">2:1</div>
+        <div class="kpi-label">L-Theanine to caffeine ratio (Focus & Energy)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">0<span style="font-size:20px;">%</span></div>
+        <div class="kpi-label">Coffee bean content — truly beanless</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-value">97<span style="font-size:20px;">%</span></div>
+        <div class="kpi-label">Positive reviews across 5,000 tastings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= BRAND ============= -->
+<section id="brand">
+  <div class="wrap">
+    <span class="chapter-num">01 / The Brand</span>
+    <h2>The new standard for wellness.</h2>
+    <p>A wellness ritual is only truly complete when <strong>nutrition, taste, and convenience align perfectly</strong>. SANS fuses the potent energy of 12+ superfoods with the rich, complex profile of premium coffee — crafted without a single bean, yet scientifically reimagined through <strong>Molecular Flavor Mapping</strong> and <strong>Heritage Fermentation Technology</strong> rooted in 1,000 years of Korean craft.</p>
+
+    <div class="pull-quote">
+      <blockquote>SANS Jitters. SANS Crash. Just Wellness.<br>SANS Grit. SANS Sludge. Just Smooth.</blockquote>
+      <cite>— Brand Manifesto</cite>
+    </div>
+
+    <h3>Why SANS Matters Now</h3>
+    <div class="cols-2">
+      <div>
+        <p>The world drinks <strong>2 billion cups of coffee a day</strong>. Yet climate change is rapidly shrinking the coffee belt, pushing beans toward extinction. Coffee production emits 2.2× more carbon than pork and uses 1.2× more water than beef.</p>
+        <p>Heavy coffee drinkers face jitters, crashes, sleep disruption, and constant fatigue. Coffee is collapsing under its own weight.</p>
+      </div>
+      <div>
+        <p>SANS breaks free. Every ingredient can be grown indoors via smart farming and greenhouse cultivation. <strong>Climate no longer dictates supply — innovation does.</strong></p>
+        <p>Stable harvests. Predictable pricing. Secure flavor, forever. From Earth to Mars, SANS can be grown anywhere humanity goes.</p>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <h3>Proof Points</h3>
+    <ul class="info-list">
+      <li><span class="lbl">Flagship Café</span><span class="val">World's first alternative coffee café opened in Seoul, October 2024 — 300+ daily visitors within three months.</span></li>
+      <li><span class="lbl">Press Coverage</span><span class="val">Featured on CCTV, ProSieben, SBS, KBS, and MBN within the first three months of launch.</span></li>
+      <li><span class="lbl">Expert Endorsement</span><span class="val">Boram Julio Um, 2023 World Barista Champion, flew from Brazil to try it. His verdict: the taste and texture of real coffee, perfectly replicated.</span></li>
+      <li><span class="lbl">Taste Validation</span><span class="val">5,000 taste tests conducted. 97% positive reviews.</span></li>
+      <li><span class="lbl">Sustainability</span><span class="val">60% fewer carbon emissions. 76% less water use. 87% less deforestation vs. conventional coffee.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= VS MUSHROOM COFFEE ============= -->
+<section id="vs-mushroom">
+  <div class="wrap">
+    <span class="chapter-num">02 / The Category</span>
+    <h2>Why SANS is not another mushroom coffee.</h2>
+    <p>When creators hear "functional coffee" in 2026, they think of Four Sigmatic, RYZE, MUD\WTR, Lucid, Pella, or Habit One. These are the category leaders on Amazon right now. It is critical that your team understands the fundamental difference: <strong>every single one of those brands still contains coffee.</strong> SANS does not.</p>
+
+    <div class="highlight-card">
+      <span class="highlight-label">The Category-Defining Difference</span>
+      <h4>Mushroom coffee = coffee + mushrooms. SANS = coffee flavor, reborn without the bean.</h4>
+      <p>Competitors add adaptogens <em>to</em> coffee to soften the caffeine hit. SANS removes the bean entirely, then rebuilds the full roasted flavor profile through fermentation and botanical craft. It's not a compromise on coffee — it's a replacement for it.</p>
+    </div>
+
+    <h3>Head-to-Head</h3>
+    <div class="comp-wrap">
+      <div class="comp-head-row">
+        <div class="comp-cell head attr">Attribute</div>
+        <div class="comp-cell head">Conventional Coffee</div>
+        <div class="comp-cell head">Mushroom Coffee<br><span style="font-size:10px; font-weight:400; color:var(--ink-light); letter-spacing:0;">(Four Sigmatic, RYZE, etc.)</span></div>
+        <div class="comp-cell head sans-col">SANS</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Contains coffee beans</div>
+        <div class="comp-cell">Yes — 100%</div>
+        <div class="comp-cell">Yes — coffee is the base</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">No</span> — zero beans</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Caffeine source</div>
+        <div class="comp-cell">Coffee beans (~95mg)</div>
+        <div class="comp-cell">Coffee beans (~50–80mg)</div>
+        <div class="comp-cell sans-col">Guarana (100mg, Focus only)</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">L-Theanine pairing</div>
+        <div class="comp-cell">None</div>
+        <div class="comp-cell">Rarely added, not dosed</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">200mg</span> — clinically dosed 2:1</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Jitters / crash risk</div>
+        <div class="comp-cell"><span class="mark-neg">High</span></div>
+        <div class="comp-cell">Moderate</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">Near zero</span></div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Climate-proof supply</div>
+        <div class="comp-cell"><span class="mark-neg">No</span> — coffee belt shrinking</div>
+        <div class="comp-cell"><span class="mark-neg">No</span> — dependent on coffee</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">Yes</span> — indoor grown</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Multiple cups / day</div>
+        <div class="comp-cell">Caffeine stacks fast</div>
+        <div class="comp-cell">Still stacks — coffee-based</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">Yes</span> — pair Focus with Restore</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Flavor approach</div>
+        <div class="comp-cell">Roasted beans</div>
+        <div class="comp-cell">Coffee + earthy mushroom notes</div>
+        <div class="comp-cell sans-col">Fermentation-crafted roast profile</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell attr">Category</div>
+        <div class="comp-cell">Coffee</div>
+        <div class="comp-cell">Coffee (with additives)</div>
+        <div class="comp-cell sans-col"><span class="mark-pos">Beanless functional beverage</span></div>
+      </div>
+    </div>
+
+    <div class="verdict-row">
+      <div class="verdict">
+        <div class="verdict-title old">— The Old Promise</div>
+        <p><strong>"Coffee with benefits."</strong> Mushroom coffee brands asked consumers to accept coffee's downsides — acidity, caffeine dependency, jitters — and patch them with adaptogens.</p>
+      </div>
+      <div class="verdict">
+        <div class="verdict-title gap">— The Gap</div>
+        <p><strong>The bean is the problem.</strong> If caffeine causes the crash and the bean causes the acidity, adding mushrooms on top doesn't solve either. It just masks them.</p>
+      </div>
+      <div class="verdict">
+        <div class="verdict-title new">— The SANS Answer</div>
+        <p><strong>Remove the bean. Rebuild the flavor.</strong> Dose caffeine intentionally from a cleaner source, and pair it with L-Theanine at 2:1. Result: the ritual, without the cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOCUS & ENERGY ============= -->
+<section id="focus">
+  <div class="wrap">
+    <span class="chapter-num">03 / Product One</span>
+    <h2>For sharp, sustained clarity.</h2>
+
+    <div class="product-hero focus">
+      <div class="product-eyebrow">■ Focus & Energy  ·  Barista Roast</div>
+      <h3 class="product-title">FOCUS & ENERGY</h3>
+      <p class="product-tagline">The morning ritual, reimagined — smooth, sustained energy and mental sharpness without the jitters or 3pm crash.</p>
+      <div class="benefit-tags">
+        <span class="benefit-tag focus">Immune</span>
+        <span class="benefit-tag focus">Gut Health</span>
+        <span class="benefit-tag focus">Antioxidants</span>
+      </div>
+    </div>
+
+    <h3>Signature Ingredients</h3>
+    <ul class="ingredient-list">
+      <li><span class="name">Guarana</span><span class="desc">Clean caffeine source — naturally paired with tannins that slow absorption, delivering 3–5 hours of steady energy (vs. coffee's 1–2 hour spike).</span></li>
+      <li><span class="name">L-Theanine</span><span class="desc">Dosed at 200mg — a 2:1 ratio with caffeine. The clinically-validated combination for calm, jitter-free focus.</span></li>
+      <li><span class="name">Red Ginseng</span><span class="desc">Traditional Korean adaptogen for stamina, vitality, and sustained mental performance.</span></li>
+      <li><span class="name">Cordyceps</span><span class="desc">Functional mushroom supporting endurance, oxygen utilization, and cellular energy.</span></li>
+      <li><span class="name">Lion's Mane</span><span class="desc">Nootropic mushroom associated with cognitive sharpness, memory, and mental clarity.</span></li>
+    </ul>
+
+    <h3 style="margin-top: 40px;">Best For</h3>
+    <p>Mornings. Pre-workout. Deep-work sessions. Creative sprints. Anyone who wants coffee's ritual and performance without the crash.</p>
+
+    <hr class="rule">
+
+    <h3>Product Specifications</h3>
+    <ul class="info-list">
+      <li><span class="lbl">Product Name</span><span class="val">SANS Focus & Energy — Barista Roast</span></li>
+      <li><span class="lbl">Format</span><span class="val">Powder stick packets, single-serve (37 × 160 mm)</span></li>
+      <li><span class="lbl">Serving Size</span><span class="val">1 packet (6.5g)</span></li>
+      <li><span class="lbl">Servings / Box</span><span class="val">30 packets  ·  Net Wt. 6.87 oz (195g)</span></li>
+      <li><span class="lbl">Calories</span><span class="val">25 per serving</span></li>
+      <li><span class="lbl">Caffeine</span><span class="val">100mg per serving — 100% from guarana, zero from coffee beans</span></li>
+      <li><span class="lbl">L-Theanine</span><span class="val">200mg per serving — clinically dosed 2:1 with caffeine</span></li>
+      <li><span class="lbl">Dietary</span><span class="val">100% Vegan  ·  Dairy Free  ·  Lab Tested</span></li>
+      <li><span class="lbl">How to Enjoy</span><span class="val">Mix with 5–6 oz hot or cold water, or milk. Great black, iced, or as a latte.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 2:1 FORMULA ============= -->
+<section id="formula">
+  <div class="wrap">
+    <span class="chapter-num">04 / The Science</span>
+    <h2>The 2:1 formula that changes everything.</h2>
+    <p>This is the most important section of this brief. When creators ask <em>"why is this better than a regular coffee?"</em> — this is the answer.</p>
+
+    <div class="caffeine-hero">
+      <h3>The Focus & Energy Formula</h3>
+      <div class="big">
+        200mg L-Theanine.<br>
+        100mg caffeine. <em>From guarana.</em>
+      </div>
+      <p>Every 6.5g serving of Focus & Energy delivers 100mg of caffeine — sourced entirely from guarana, not coffee beans — paired with exactly 200mg of L-Theanine. That's a <strong>2:1 ratio</strong>, the dosing that multiple peer-reviewed studies have identified as optimal for sustained attention without jitters.</p>
+
+      <div class="formula-grid">
+        <div class="formula-cell l-theanine">
+          <div class="f-label">Amino Acid</div>
+          <div class="f-amount">200<em>mg</em></div>
+          <div class="f-name">L-Theanine</div>
+          <div class="f-note">Promotes alpha brain waves. Smooths the caffeine curve. Calms without sedation.</div>
+        </div>
+        <div class="formula-cell caffeine">
+          <div class="f-label">Clean Stimulant</div>
+          <div class="f-amount">100<em>mg</em></div>
+          <div class="f-name">Caffeine (Guarana)</div>
+          <div class="f-note">Slow-release via guarana's natural tannin binding.</div>
+        </div>
+      </div>
+      <div class="formula-ratio">— a 2 : 1 ratio —</div>
+    </div>
+
+    <h3>Why guarana caffeine beats coffee caffeine</h3>
+    <p>Coffee delivers caffeine fast — a sharp peak in the bloodstream within 30–45 minutes, followed by an equally sharp drop. That drop <strong>is</strong> the crash. Guarana caffeine binds to natural tannins in the seed, which slow its release in the digestive tract. The result is a flatter, longer curve: less spike, no cliff.</p>
+
+    <!-- ENERGY CURVE CHART -->
+    <div class="energy-chart">
+      <div class="chart-head">
+        <div class="chart-title">— Energy Curve Over 6 Hours</div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-swatch sans"></span>SANS Focus & Energy</span>
+          <span class="legend-item"><span class="legend-swatch coffee" style="border-top: 2px dashed var(--accent); background:transparent; height:0;"></span>Coffee (same caffeine dose)</span>
+        </div>
+      </div>
+      <svg class="chart-svg" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <!-- Grid -->
+        <g stroke="#e0e0e0" stroke-width="1">
+          <line x1="60" y1="40" x2="720" y2="40"/>
+          <line x1="60" y1="100" x2="720" y2="100"/>
+          <line x1="60" y1="160" x2="720" y2="160"/>
+          <line x1="60" y1="220" x2="720" y2="220"/>
+          <line x1="60" y1="280" x2="720" y2="280"/>
+        </g>
+        <!-- Y-axis labels -->
+        <g font-family="DM Sans, sans-serif" font-size="10" fill="#8a8a8a">
+          <text x="52" y="44" text-anchor="end">High</text>
+          <text x="52" y="164" text-anchor="end">Baseline</text>
+          <text x="52" y="284" text-anchor="end">Low</text>
+        </g>
+        <!-- X-axis labels -->
+        <g font-family="DM Sans, sans-serif" font-size="10" fill="#8a8a8a" text-anchor="middle">
+          <text x="60" y="302">0h</text>
+          <text x="170" y="302">1h</text>
+          <text x="280" y="302">2h</text>
+          <text x="390" y="302">3h</text>
+          <text x="500" y="302">4h</text>
+          <text x="610" y="302">5h</text>
+          <text x="720" y="302">6h</text>
+        </g>
+        <!-- Axis line -->
+        <line x1="60" y1="280" x2="720" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="60" y1="40" x2="60" y2="280" stroke="#1a1a1a" stroke-width="1.5"/>
+
+        <!-- COFFEE CURVE: sharp spike then crash -->
+        <path d="M 60,160 Q 100,60 170,50 Q 220,55 260,90 Q 320,150 390,240 Q 440,265 500,260 Q 580,250 720,210"
+              fill="none" stroke="#c8102e" stroke-width="2.5" stroke-dasharray="6 5" opacity="0.85"/>
+        <!-- Crash zone highlight -->
+        <path d="M 260,90 Q 320,150 390,240 Q 440,265 500,260 L 500,280 L 260,280 Z"
+              fill="#c8102e" opacity="0.05"/>
+
+        <!-- SANS CURVE: smooth plateau -->
+        <path d="M 60,160 Q 130,110 200,90 Q 320,78 440,85 Q 560,95 720,140"
+              fill="none" stroke="#7a8a6e" stroke-width="3"/>
+        <!-- SANS fill -->
+        <path d="M 60,160 Q 130,110 200,90 Q 320,78 440,85 Q 560,95 720,140 L 720,280 L 60,280 Z"
+              fill="#7a8a6e" opacity="0.08"/>
+
+        <!-- Annotation points -->
+        <circle cx="170" cy="50" r="4" fill="#c8102e"/>
+        <text x="178" y="38" font-family="DM Sans" font-size="10" fill="#c8102e">Peak & spike</text>
+
+        <circle cx="440" cy="85" r="4" fill="#7a8a6e"/>
+        <text x="448" y="75" font-family="DM Sans" font-size="10" fill="#7a8a6e">Sustained plateau</text>
+
+        <circle cx="390" cy="240" r="4" fill="#c8102e"/>
+        <text x="380" y="230" font-family="DM Sans" font-size="10" fill="#c8102e" text-anchor="end">Crash begins</text>
+
+        <!-- "the crash" label moved down into shaded area, away from crash begins label -->
+        <text x="380" y="268" font-family="DM Serif Display" font-style="italic" font-size="13" fill="#c8102e" text-anchor="middle" opacity="0.7">the crash</text>
+      </svg>
+      <div class="chart-caption">
+        Illustrative curve based on published pharmacokinetic literature on caffeine absorption from coffee vs. guarana, and on the documented effects of L-Theanine co-administration at a 2:1 ratio.
+      </div>
+    </div>
+
+    <h3>What L-Theanine at 200mg actually does</h3>
+    <div class="cols-2">
+      <div>
+        <p><strong>Smooths the peak.</strong> L-Theanine crosses the blood-brain barrier and increases alpha-wave activity — the brain state associated with calm focus. When paired with caffeine at 2:1, it flattens the stimulant peak while preserving the alertness.</p>
+      </div>
+      <div>
+        <p><strong>Extends the curve.</strong> Multiple clinical studies have shown that L-Theanine + caffeine at this ratio improves sustained attention, reaction time, and task-switching accuracy for up to <strong>3–5 hours</strong> longer than caffeine alone.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>For your team's briefing notes:</strong> The 2:1 formula isn't a marketing number. It's the exact ratio used in the most cited caffeine-theanine cognitive performance research (Owen et al., 2008; Giesbrecht et al., 2010). Creators and their audiences who've researched nootropics will recognize this instantly — it adds significant credibility versus generic "clean energy" claims.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= BALANCE & RESTORE ============= -->
+<section id="restore">
+  <div class="wrap">
+    <span class="chapter-num">05 / Product Two</span>
+    <h2>For the coffee drinker's recalibration.</h2>
+    <p>If Focus & Energy is the upgrade to the morning cup, Balance & Restore is what most creators are quietly looking for but can't name yet: <strong>a daily reset for a body that's been running on caffeine.</strong> Not a sleep aid. Not a decaf compromise. A functional cup that slots into the same ritual — coffee flavor, coffee texture, coffee warmth — and actively rebuilds what daily caffeine depletes.</p>
+
+    <div class="product-hero restore">
+      <div class="product-eyebrow">■ Balance & Restore  ·  Barista Roast</div>
+      <h3 class="product-title">BALANCE & RESTORE</h3>
+      <p class="product-tagline">The daily recalibration cup — same ritual, same roasted flavor, zero caffeine. Formulated to nourish and reset a body that's been adapted to coffee.</p>
+      <div class="benefit-tags">
+        <span class="benefit-tag restore">Immune</span>
+        <span class="benefit-tag restore">Gut Health</span>
+        <span class="benefit-tag restore">Antioxidants</span>
+      </div>
+    </div>
+
+    <div class="highlight-card">
+      <span class="highlight-label">The Recalibration Effect</span>
+      <h4>Zero caffeine is the starting point, not the story.</h4>
+      <p>Daily coffee drinkers build up subtle, compounding costs — disrupted cortisol rhythms, magnesium depletion, gut irritation, adenosine receptor desensitization, and the low-grade anxiety that comes with caffeine tolerance. Balance & Restore was formulated specifically for bodies already adapted to coffee. It's not about quitting caffeine — it's about giving the system a functional cup that <em>undoes</em> some of the wear while keeping the ritual intact. Swap one cup a day, or stack it with Focus & Energy for a fuller reset.</p>
+    </div>
+
+    <h3>Signature Ingredients — Built for Recalibration</h3>
+    <ul class="ingredient-list">
+      <li><span class="name">Reishi</span><span class="desc">The "mushroom of immortality" — adaptogen that helps the nervous system downshift from the caffeine-driven alert state without sedation.</span></li>
+      <li><span class="name">L-Theanine</span><span class="desc">Same amino acid as in Focus & Energy — here it works solo, smoothing the residual edge that heavy coffee drinkers carry through the day.</span></li>
+      <li><span class="name">Lemon Balm</span><span class="desc">Traditional botanical shown to ease the low-grade tension and jitter that accumulate from daily caffeine exposure.</span></li>
+      <li><span class="name">Magnesium L-Lactate</span><span class="desc">The mineral coffee famously depletes — replenished in a bioavailable form. Supports muscle function, energy metabolism, and calm focus.</span></li>
+      <li><span class="name">Tart Cherry</span><span class="desc">Rich in antioxidants and anti-inflammatories that counter the oxidative stress of an espresso-heavy lifestyle.</span></li>
+      <li><span class="name">Jujube</span><span class="desc">Ancient Korean botanical traditionally used to restore balance and replenish qi — the daily-use restorative the formula is built around.</span></li>
+    </ul>
+
+    <h3 style="margin-top: 40px;">Best For</h3>
+    <p>The second cup. The 2pm refill. The post-gym unwind. The deep-work window where you'd normally reach for espresso #3 but don't actually need the caffeine. Anyone building a more intentional daily coffee routine — from creators logging cortisol-aware mornings, to caffeine-sensitive folks who still love the ritual, to anyone who just wants a functional cup that fits seamlessly between the two real coffees they're already drinking.</p>
+
+    <hr class="rule">
+
+    <h3>Product Specifications</h3>
+    <ul class="info-list">
+      <li><span class="lbl">Product Name</span><span class="val">SANS Balance & Restore — Barista Roast</span></li>
+      <li><span class="lbl">Format</span><span class="val">Powder stick packets, single-serve (37 × 160 mm)</span></li>
+      <li><span class="lbl">Serving Size</span><span class="val">1 packet (6.5g)</span></li>
+      <li><span class="lbl">Servings / Box</span><span class="val">30 packets  ·  Net Wt. 6.87 oz (195g)</span></li>
+      <li><span class="lbl">Calories</span><span class="val">25 per serving</span></li>
+      <li><span class="lbl">Caffeine</span><span class="val">Zero — completely caffeine-free</span></li>
+      <li><span class="lbl">Dietary</span><span class="val">100% Vegan  ·  Dairy Free  ·  Lab Tested</span></li>
+      <li><span class="lbl">How to Enjoy</span><span class="val">Mix with 6–7 oz hot or cold water, or milk. Enjoy black, iced, or creamy with milk.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= RITUAL ============= -->
+<section id="ritual">
+  <div class="wrap">
+    <span class="chapter-num">06 / The Ritual</span>
+    <h2>Three steps. One perfect cup.</h2>
+    <p>SANS was designed for the modern ritual: as fast as an instant, as layered as a pour-over. It dissolves cleanly in seconds — no grit, no sludge, no clumps. This matters for creator content because the brew moment is where mushroom coffee typically looks unappetizing on camera.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">I.</div>
+        <div>
+          <div class="step-title">Mix</div>
+          <div class="step-body">Pour one packet into 5–6 oz of water or milk. Hot or cold — either way works beautifully.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">II.</div>
+        <div>
+          <div class="step-title">Stir</div>
+          <div class="step-body">Stir gently. SANS dissolves cleanly in seconds — no residue, no aftertaste, no sludge at the bottom of the mug.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">III.</div>
+        <div>
+          <div class="step-title">Sip</div>
+          <div class="step-body">Enjoy black, iced, or creamy with milk. Works anywhere coffee does — and a few places coffee doesn't.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= WHY IT MATTERS ============= -->
+<section id="why">
+  <div class="wrap">
+    <span class="chapter-num">07 / Why It Matters</span>
+    <h2>Better taste. Healthier choice. Lighter impact.</h2>
+    <p>Three pillars your team can lean on when briefing creators. Each one stands alone as a full content angle.</p>
+
+    <div class="conclusion-grid">
+      <div class="conc-card">
+        <div class="conc-num">i.</div>
+        <div>
+          <div class="conc-title">Better Taste</div>
+          <div class="conc-body">5,000 taste tests. 97% positive reviews. Endorsed by a World Barista Champion. SANS isn't an imitation — it's a new category of coffee altogether, built on Korean fermentation craft refined over 1,000 years. The flavor profile rivals premium cup-of-excellence coffee without the acidity or bitterness.</div>
+        </div>
+      </div>
+      <div class="conc-card">
+        <div class="conc-num">ii.</div>
+        <div>
+          <div class="conc-title">Healthier Choice</div>
+          <div class="conc-body">Focus & Energy delivers clean, guarana-sourced caffeine at 100mg, paired with 200mg L-Theanine for a crash-proof energy curve. Balance & Restore is completely caffeine-free. Both products deliver 12+ functional botanicals with real, measurable wellness benefits — immune support, gut health, antioxidants, and adaptogenic balance.</div>
+        </div>
+      </div>
+      <div class="conc-card">
+        <div class="conc-num">iii.</div>
+        <div>
+          <div class="conc-title">Lighter Impact</div>
+          <div class="conc-body">Every ingredient can be grown indoors via smart farming. 60% fewer carbon emissions. 76% less water. 87% less deforestation than conventional coffee. SANS is the only coffee that could be grown on Mars — and the one Earth needs today as the coffee belt continues to shrink.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= TALKING POINTS ============= -->
+<section id="talking">
+  <div class="wrap">
+    <span class="chapter-num">08 / For Creator Briefs</span>
+    <h2>Key talking points.</h2>
+    <p>Positioning lines the agency can adapt into creator briefs. Written as angles, not scripts — creators should always speak in their own voice.</p>
+
+    <div class="tp-group">
+      <div class="tp-label">— The Category Story (most important)</div>
+      <div class="tp-quote">Every mushroom coffee on Amazon still has coffee in it. SANS doesn't. That's the whole difference.</div>
+      <div class="tp-quote">This isn't coffee with benefits. It's a replacement for coffee, rebuilt from scratch.</div>
+      <div class="tp-quote">Beanless. Zero coffee. All the flavor.</div>
+    </div>
+
+    <div class="tp-group">
+      <div class="tp-label">— The 2:1 Formula (Focus & Energy)</div>
+      <div class="tp-quote">100mg caffeine from guarana, 200mg L-Theanine. The 2:1 ratio nootropic nerds have been chasing for years.</div>
+      <div class="tp-quote">Guarana caffeine releases slower than coffee caffeine. That's why there's no crash.</div>
+      <div class="tp-quote">I'm 4 hours in and still locked in. No jitters. No second cup needed.</div>
+    </div>
+
+    <div class="tp-group">
+      <div class="tp-label">— Taste & Experience</div>
+      <div class="tp-quote">It tastes like a real espresso — but there's not a single bean in it.</div>
+      <div class="tp-quote">The texture is exactly like coffee. It's the smoothest cup I've ever had.</div>
+      <div class="tp-quote">Dissolves in seconds. No grit. No sludge. No aftertaste.</div>
+    </div>
+
+    <div class="tp-group">
+      <div class="tp-label">— Wellness Angle</div>
+      <div class="tp-quote">I get the coffee ritual without the 3pm crash.</div>
+      <div class="tp-quote">12+ superfoods in one packet — this is basically a multivitamin in a mug.</div>
+      <div class="tp-quote">FOCUS for the morning, RESTORE for the second or third cup. It's how I drink coffee now.</div>
+      <div class="tp-quote">Balance & Restore replaces my 2pm espresso without me missing anything.</div>
+    </div>
+
+    <div class="tp-group">
+      <div class="tp-label">— Sustainability & Story</div>
+      <div class="tp-quote">Coffee is running out. SANS is what comes next.</div>
+      <div class="tp-quote">60% less carbon, 76% less water, 87% less deforestation than coffee.</div>
+      <div class="tp-quote">Built on 1,000 years of Korean fermentation craft — reimagined for the future.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= AUDIENCES ============= -->
+<section id="audience">
+  <div class="wrap">
+    <span class="chapter-num">09 / Target Audiences</span>
+    <h2>Who SANS speaks to.</h2>
+    <p>Creator archetypes to prioritize. Each has a distinct hook the brand resonates with — use these to filter the seeding list and tailor briefs.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 1 · Lead</div>
+        <div class="audience-title">The Wellness Ritualist</div>
+        <div class="audience-body">Morning routines, adaptogens, Pilates, matcha, sleep scores. Already familiar with mushroom coffee and ready for the next step. Lean into ritual, aesthetic, and functional ingredients.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 1 · Lead</div>
+        <div class="audience-title">The Biohacker / Nootropic Creator</div>
+        <div class="audience-body">Huberman-adjacent. Will read the label. The 2:1 L-Theanine-to-caffeine ratio is the hook. Lead with the formula, the guarana-vs-coffee pharmacokinetics, and the sustained-attention research.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 2</div>
+        <div class="audience-title">The High-Performing Professional</div>
+        <div class="audience-body">Founders, consultants, creatives, attorneys. Drinks 3+ coffees a day and hates the crash. Lead with productivity: "4 hours of focus on one cup, no second cup needed."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 2</div>
+        <div class="audience-title">The Recalibrator</div>
+        <div class="audience-body">Heavy coffee drinkers (3+ cups) who want to cap the caffeine total without cutting cups. Also caffeine-sensitive folks, pregnant or post-partum creators, and cortisol-aware wellness voices. Balance & Restore fits into their existing coffee rotation as a functional swap.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 3</div>
+        <div class="audience-title">The Sustainability-Forward</div>
+        <div class="audience-body">Climate-conscious lifestyle creators. Lead with the 60% / 76% / 87% sustainability stats and the "coffee belt is shrinking" narrative.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">— Tier 3</div>
+        <div class="audience-title">The Vegan / Clean-Label</div>
+        <div class="audience-body">100% vegan, dairy-free, and plant-based is a qualifier for them. 12+ botanical ingredients with recognizable names (ginseng, lion's mane, tart cherry) is a strong hook.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= GUIDELINES ============= -->
+<section id="guidelines">
+  <div class="wrap">
+    <span class="chapter-num">10 / Messaging Guidelines</span>
+    <h2>Do's & don'ts.</h2>
+    <p>Rules that should be reflected in every creator brief the agency sends out. The FDA disclaimer in particular is non-negotiable for any post discussing health benefits.</p>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin:24px 0;">
+      <div style="background:var(--bg); padding:24px;">
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--ink); color:var(--positive);">+ Please Do</div>
+        <ul style="list-style:none;">
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Describe SANS as "beanless coffee" or "a new category of coffee."</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Emphasize the clean caffeine source (guarana, not coffee beans) for Focus & Energy.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Use the 2:1 L-Theanine to caffeine ratio as the hero formula claim.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Show the brewing process — the clean dissolve is a visual differentiator.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Use natural lighting. Ceramic, glass, and minimal styling for the premium positioning.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; color:var(--ink-mid);"><span style="color:var(--positive); font-weight:500; margin-right:8px;">+</span>Lead with how the product feels — calm focus, smooth energy, no crash.</li>
+        </ul>
+      </div>
+      <div style="background:var(--bg); padding:24px;">
+        <div style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding-bottom:14px; margin-bottom:14px; border-bottom:1px solid var(--ink); color:var(--negative);">× Please Don't</div>
+        <ul style="list-style:none;">
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Call SANS a "coffee alternative" or "instant coffee substitute" — it's a new category.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Position SANS as "caffeine-free" in Focus & Energy posts — it has 100mg.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Lump SANS in with mushroom coffee brands (Four Sigmatic, RYZE, MUD\WTR) — those all contain real coffee; SANS does not.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Claim SANS diagnoses, treats, cures, or prevents any disease.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; border-bottom:1px solid var(--rule); color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Reference competitor brands by name or make direct comparisons in captions.</li>
+          <li style="font-size:14.5px; line-height:1.65; padding:10px 0; color:var(--ink-mid);"><span style="color:var(--negative); font-weight:500; margin-right:8px;">×</span>Make specific health claims not supported by on-pack labeling.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <div class="disclaimer-label">Required FDA Disclaimer — Non-Negotiable</div>
+      <p>Any post discussing health benefits must include this line in the caption or on-screen: "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="sans-logo footer-logo"><span class="sa">sa</span><span class="dot"></span><span class="ns">ns</span></div>
+      <div class="footer-sub">Initiated in 1806  ·  Perfected in 2024</div>
+    </div>
+    <div class="footer-meta">
+      Distributed by SANS<br>
+      30 Supyo-ro 28-gil, Jongno-gu<br>
+      Seoul 03133, Republic of Korea
+    </div>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
